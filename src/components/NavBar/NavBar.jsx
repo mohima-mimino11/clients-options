@@ -47,7 +47,7 @@ const NavBar = () => {
           : <AiOutlineMenu></AiOutlineMenu> 
         }
        </div>
-      <ul className={`md:flex bg-orange-300 absolute px-5 ${open ? '' : 'hidden'}`}>
+      <ul className={`md:flex bg-orange-300 absolute md:static px-5 duration-1000 ${open ? 'top-16' : '-top-60'}`}>
         {
           NavPaths.map(option => <NavOptions 
               key={option.id} option={option}></NavOptions>)
