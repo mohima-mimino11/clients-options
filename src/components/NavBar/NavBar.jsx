@@ -40,13 +40,17 @@ const NavBar = () => {
   const [open, setOpen] = useState(false)
   return (
     <div>
-      <ul className="md:flex ">
-       <div onClick={() => setOpen(!open)} className="md:hidden text-3xl">
-        <AiOutlineMenu></AiOutlineMenu>
-        <AiOutlineClose></AiOutlineClose>
-       </div>
+      <div onClick={() => setOpen(!open)} className="md:hidden text-3xl">
         {
-          NavPaths.map(option => <NavOptions  key={option.id} option={option}></NavOptions>)
+          open === true 
+          ? <AiOutlineClose></AiOutlineClose>
+          : <AiOutlineMenu></AiOutlineMenu> 
+        }
+       </div>
+      <ul className={`md:flex bg-orange-300 absolute px-5 ${open ? '' : 'hidden'}`}>
+        {
+          NavPaths.map(option => <NavOptions 
+              key={option.id} option={option}></NavOptions>)
         }
       </ul>
     </div>
